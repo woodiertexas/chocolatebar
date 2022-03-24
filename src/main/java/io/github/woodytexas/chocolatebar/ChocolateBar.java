@@ -18,7 +18,7 @@ public class ChocolateBar implements ModInitializer {
 
     public static final Item QUILTY_WRAPPER = new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.UNCOMMON));
     public static final Item TOOLCHAIN_WRAPPER = new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.UNCOMMON));
-    public static final ChocolateBarItem CHOCOLATE_BAR = new ChocolateBarItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(2).saturationModifier(0).statusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST), 0.05f).build()));
+    public static final ChocolateBarItem CHOCOLATE_BAR = new ChocolateBarItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(2).saturationModifier(0).statusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 600), 0.15f).snack().build()));
 
     @Override
     public void onInitialize() {
