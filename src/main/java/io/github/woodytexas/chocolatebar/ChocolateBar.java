@@ -2,6 +2,8 @@ package io.github.woodytexas.chocolatebar;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -16,7 +18,7 @@ public class ChocolateBar implements ModInitializer {
 
     public static final Item QUILTY_WRAPPER = new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.UNCOMMON));
     public static final Item TOOLCHAIN_WRAPPER = new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.UNCOMMON));
-    public static final ChocolateBarItem CHOCOLATE_BAR = new ChocolateBarItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(2).saturationModifier(0).build()));
+    public static final ChocolateBarItem CHOCOLATE_BAR = new ChocolateBarItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(2).saturationModifier(0).statusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST), 0.05f).build()));
 
     @Override
     public void onInitialize() {
