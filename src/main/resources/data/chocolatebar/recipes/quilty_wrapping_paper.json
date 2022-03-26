@@ -9,17 +9,14 @@
       "item": "minecraft:light_blue_dye"
     },
     {
-      "item": "minecraft:green_dye"
-    },
-    {
-      "item": "minecraft:lime_dye"
+      "item": "minecraft:purple_dye"
     },
     {
       "item": "minecraft:paper"
     }
   ],
   "result": {
-    "item": "chocolatebar:toolchain_wrapper",
+    "item": "chocolatebar:quilty_wrapping_paper",
     "count": 1
   }
 }

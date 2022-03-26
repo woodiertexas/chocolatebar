@@ -16,14 +16,25 @@ import org.apache.logging.log4j.Logger;
 public class ChocolateBar implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger("chocolatebar");
 
-    public static final Item QUILTY_WRAPPER = new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.UNCOMMON));
-    public static final Item TOOLCHAIN_WRAPPER = new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.UNCOMMON));
-    public static final ChocolateBarItem CHOCOLATE_BAR = new ChocolateBarItem(new FabricItemSettings().group(ItemGroup.FOOD).food(new FoodComponent.Builder().hunger(2).saturationModifier(0).statusEffect(new StatusEffectInstance(StatusEffects.JUMP_BOOST, 600), 0.15f).snack().build()));
+    public static final Item QUILTY_WRAPPING_PAPER = new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.UNCOMMON));
+    public static final Item TOOLCHAIN_WRAPPING_PAPER = new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.UNCOMMON));
+    public static final ChocolateBarItem CHOCOLATE_BAR = new ChocolateBarItem(
+            new FabricItemSettings()
+                    .group(ItemGroup.FOOD).food(
+                    new FoodComponent.Builder()
+                            .hunger(1)
+                            .saturationModifier(0)
+                            .alwaysEdible()
+                            .snack()
+                            .statusEffect(
+                            new StatusEffectInstance(StatusEffects.JUMP_BOOST, 600), 0.15f).build()
+            )
+    );
 
     @Override
     public void onInitialize() {
         Registry.register(Registry.ITEM, new Identifier("chocolatebar", "chocolate_bar"), CHOCOLATE_BAR);
-        Registry.register(Registry.ITEM, new Identifier("chocolatebar", "quilty_wrapper"), QUILTY_WRAPPER);
-        Registry.register(Registry.ITEM, new Identifier("chocolatebar", "toolchain_wrapper"), TOOLCHAIN_WRAPPER);
+        Registry.register(Registry.ITEM, new Identifier("chocolatebar", "quilty_wrapping_paper"), QUILTY_WRAPPING_PAPER);
+        Registry.register(Registry.ITEM, new Identifier("chocolatebar", "toolchain_wrapping_paper"), TOOLCHAIN_WRAPPING_PAPER);
     }
 }

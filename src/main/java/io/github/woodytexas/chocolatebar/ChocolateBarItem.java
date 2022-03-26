@@ -24,8 +24,8 @@ public class ChocolateBarItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext options) {
-        MutableText test = new LiteralText("Potato chocolate?").styled(style -> style.withColor(0xB79268));
+        MutableText lore = new LiteralText("Potato chocolate?").styled(style -> style.withColor(0xB79268));
 
-        tooltip.add(test);
+        tooltip.add(lore);
     }
 }
