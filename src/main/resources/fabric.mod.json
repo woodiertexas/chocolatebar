@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "chocolatebar",
-  "version": "0.1.0",
+  "version": "0.1.1+mc1.18.2",
 
   "name": "Chocolate Bar",
   "description": "A little mod that adds a chocolate bar to Minecraft.",
