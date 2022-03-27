@@ -1,2 +1,4 @@
 # Chocolate Bar Mod
-A little mod that adds a chocolate bar to Minecraft. 
+A little mod that adds a chocolate bar to Minecraft.
+
+Modrinth page: https://modrinth.com/mod/chocolate-bar
