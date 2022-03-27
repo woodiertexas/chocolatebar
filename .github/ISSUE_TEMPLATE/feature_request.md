@@ -2,7 +2,7 @@
 name: Feature request
 about: Suggest a feature to be added to Chocolate Bar.
 title: ''
-labels: ''
+labels: suggestion
 assignees: ''
 
 ---
