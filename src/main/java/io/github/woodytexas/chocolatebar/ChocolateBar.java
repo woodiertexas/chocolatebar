@@ -2,16 +2,27 @@ package io.github.woodytexas.chocolatebar;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.resource.IdentifiableResourceReloadListener;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
+import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.resource.ResourceManager;
+import net.minecraft.resource.ResourcePackManager;
+import net.minecraft.resource.ResourceType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.io.InputStream;
+import java.time.Instant;
 
 public class ChocolateBar implements ModInitializer {
     public static final Logger LOGGER = LogManager.getLogger("chocolatebar");
@@ -36,5 +47,12 @@ public class ChocolateBar implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier("chocolatebar", "chocolate_bar"), CHOCOLATE_BAR);
         Registry.register(Registry.ITEM, new Identifier("chocolatebar", "quilty_wrapping_paper"), QUILTY_WRAPPING_PAPER);
         Registry.register(Registry.ITEM, new Identifier("chocolatebar", "toolchain_wrapping_paper"), TOOLCHAIN_WRAPPING_PAPER);
+
+        if (FabricLoader.getInstance().isModLoaded("create")) {
+            ResourceManagerHelper.registerBuiltinResourcePack(
+                    new Identifier("chocolatebar", "create_compat"),
+                    FabricLoader.getInstance().getModContainer("chocolatebar").get(),
+                    ResourcePackActivationType.DEFAULT_ENABLED);
+        }
     }
 }
