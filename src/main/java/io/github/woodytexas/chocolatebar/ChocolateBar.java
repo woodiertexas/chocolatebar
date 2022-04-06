@@ -17,10 +17,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class ChocolateBar implements ModInitializer {
+    //This creates a logger.
     public static final Logger LOGGER = LogManager.getLogger("chocolatebar");
 
+    /*
+    Creating items/blocks/etc and defining their properties
+     */
     public static final Item QUILTY_WRAPPING_PAPER = new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.UNCOMMON));
     public static final Item TOOLCHAIN_WRAPPING_PAPER = new Item(new FabricItemSettings().group(ItemGroup.MISC).rarity(Rarity.UNCOMMON));
+
+    //This code for a food item is so big it had to be put on multiple lines.
     public static final ChocolateBarItem CHOCOLATE_BAR = new ChocolateBarItem(
             new FabricItemSettings()
                     .group(ItemGroup.FOOD).food(
@@ -36,10 +42,20 @@ public class ChocolateBar implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        /*
+        Every block, item, entity, and biome must sign their registration papers.
+        All registration papers must be turned into the ModInitializer in the @Override Building
+
+        In all seriousness, the following code registers any item, block, entity, or biome added by the mod.
+         */
         Registry.register(Registry.ITEM, new Identifier("chocolatebar", "chocolate_bar"), CHOCOLATE_BAR);
         Registry.register(Registry.ITEM, new Identifier("chocolatebar", "quilty_wrapping_paper"), QUILTY_WRAPPING_PAPER);
         Registry.register(Registry.ITEM, new Identifier("chocolatebar", "toolchain_wrapping_paper"), TOOLCHAIN_WRAPPING_PAPER);
 
+        /*
+        This automatically loads up a datapack.
+        In this case it's a modified chocolate bar recipe if Create is present.
+         */
         if (FabricLoader.getInstance().isModLoaded("create")) {
             ResourceManagerHelper.registerBuiltinResourcePack(
                     new Identifier("chocolatebar", "create_compat"),
