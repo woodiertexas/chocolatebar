@@ -18,7 +18,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.woodytexas.chocolatebar.ChocolateBar"
+      "io.github.woodiertexas.chocolatebar.ChocolateBar"
     ]
   },
   "mixins": [
